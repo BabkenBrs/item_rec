@@ -1,0 +1,7 @@
+files:
+  interactions: data/interactions.csv
+
+ials_params:
+  emb_size: 100
+  reg_coef: 0.01
+  n_iter: 15
