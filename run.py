@@ -1,11 +1,12 @@
 """Pipeline."""
 
 import hydra
+from omegaconf import DictConfig
+
 from item_rec.metrics import Map10
 from item_rec.models import IALS, RandomModel
 from item_rec.preprocess import PreprocessData
 from item_rec.utils import load_data
-from omegaconf import DictConfig
 
 
 @hydra.main(version_base=None, config_path="conf", config_name="config")
