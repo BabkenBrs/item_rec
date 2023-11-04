@@ -22,7 +22,8 @@ class Map10:
 
         Args:
             recommendations: A list which contain recommendations for users
-            real_test: A dictionary mapping users to items with which the user interacted
+            real_test: A dictionary mapping users to items with
+            which the user interacted
         """
         self.recommendations = recommendations
         self.real_test = real_test
@@ -48,12 +49,15 @@ class Map10:
         return rel / k
 
     def average_precision_k(
-        self, K: int, user_recommend: NDArray[np.int_], user_real: NDArray[np.int_]
+        self,
+        k_first: int,
+        user_recommend: NDArray[np.int_],
+        user_real: NDArray[np.int_],
     ) -> float:
         """Calculate average precision at K first recommendations.
 
         Args:
-            K: number of top recommendations
+            k_first: number of top recommendations
             user_recommend: list of sorted recommendations for user
             user_real: list of real items with which the user interacted
 
@@ -64,7 +68,7 @@ class Map10:
         """
         cnt = 0
         sum_prec_k = 0.0
-        for k in range(1, K + 1):
+        for k in range(1, k_first + 1):
             if user_recommend[k - 1] in user_real:
                 cnt += 1
                 sum_prec_k += self.precision_k(k, user_recommend[:k], user_real)

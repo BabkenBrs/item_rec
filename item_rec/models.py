@@ -1,10 +1,9 @@
 """This module saves different models."""
 
-from typing import Any
-from scipy import sparse as sp
+import implicit
 import numpy as np
 from numpy.typing import NDArray
-import implicit
+from scipy import sparse as sp
 from tqdm import tqdm
 
 
@@ -22,7 +21,7 @@ class RandomModel:
         """
         self.train_dataset = train_dataset.toarray()
         self.num_of_users = train_dataset.shape[0]
-        self.recommends: list[NDArray] = [None for i in range(self.num_of_users)] # type: ignore
+        self.recommends: list[NDArray] = [None for i in range(self.num_of_users)]  # type: ignore
 
         for user in tqdm(range(self.num_of_users)):
             self.recommends[user] = np.random.choice(  # type: ignore

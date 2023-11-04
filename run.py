@@ -1,16 +1,19 @@
 """Pipeline."""
 
 import hydra
-from omegaconf import DictConfig
-
+from item_rec.metrics import Map10
 from item_rec.models import IALS, RandomModel
 from item_rec.preprocess import PreprocessData
-from item_rec.metrics import Map10
+from item_rec.utils import load_data
+from omegaconf import DictConfig
 
 
 @hydra.main(version_base=None, config_path="conf", config_name="config")
 def main(cfg: DictConfig):
     """Main function which start the whole pipeline."""
+    print("[LOAD DATA] Start loading data...")
+    load_data()
+
     print("[PREPROCESING DATA] Start preprocessing Dataset...")
     preproc = PreprocessData(cfg["files"]["interactions"])
     dataset = preproc.get_data()

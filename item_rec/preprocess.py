@@ -1,7 +1,7 @@
 """"Module for getting and preprocessing data."""
 
-import pandas as pd
 import numpy as np
+import pandas as pd
 from numpy.typing import NDArray
 from scipy import sparse as sp
 
