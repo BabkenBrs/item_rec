@@ -1,5 +1,10 @@
 files:
   interactions: data/interactions.csv
+  item_asset: data/item_asset.csv
+  item_price: data/item_price.csv
+  item_subclass: data/item_subclass.csv
+  user_age: data/user_age.csv
+  user_region: data/user_region.csv
 
 ials_params:
   emb_size: 100
